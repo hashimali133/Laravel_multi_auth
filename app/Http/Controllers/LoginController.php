@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
         return view('login');
     }
-    //Authentication
+    // Authentication function
     public function authenticate(Request $request)
     {
         $validator = validator::make($request->all(), [
@@ -35,10 +35,12 @@ class LoginController extends Controller
             return redirect()->route('account.login')->withInput()->withErrors($validator);
         }
     }
+    //this function will display Registeration form
     public function register()
     {
         return view('register');
     }
+    //this function will register Data to dB
     public function registerData(registerDataRequest $request)
     {
         if ($request) {
@@ -48,6 +50,7 @@ class LoginController extends Controller
             return redirect()->route('account.register')->withInput()->withErrors($request->validated());
         }
     }
+    //this function will logouts the user 
     public function logout()
     {
         Auth::logout();
