@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductUpdateRequest extends FormRequest
 {
@@ -22,11 +23,14 @@ class ProductUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'book_title' => 'required|min:4|string|unique:books',
-            'author' => 'required|min:3|string',
+            'book_title' => [
+                'required',
+                Rule::unique('products', 'book_title')->ignore($this->product->id),
+            ],
+            'author' => 'required|string',
             'genre' => 'required|string',
             'published_date' => 'required|date',
-            'status' => 'required|string'
+            'status' => 'required|string',
         ];
     }
 }

@@ -22,7 +22,7 @@ class ProductStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'book_title' => 'required|min:4|string|unique:books',
+            'book_title' => 'required|min:4|string|unique:products',
             'author' => 'required|min:3|string',
             'genre' => 'required|string',
             'published_date' => 'required|date',

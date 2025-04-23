@@ -43,10 +43,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product): View
+    public function show(): View
     {
-        return view('products.show', compact('product'));
+        $products = Product::all(); // or a filtered list
+        return view('products.show', compact('products'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -61,10 +63,10 @@ class ProductController extends Controller
      */
     public function update(ProductUpdateRequest $request, Product $product): RedirectResponse
     {
-        $product->update($request->validated());
+        $product->update(attributes: $request->validated());
 
-        return redirect()->route('products.index')
-            ->with('success', 'Product updated successfully');
+        return redirect()->route(route: 'products.index')
+            ->with(key: 'success', value: 'Product updated successfully');
     }
 
     /**

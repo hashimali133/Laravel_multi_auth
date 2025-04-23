@@ -7,6 +7,7 @@
     <title>Laravel 11 Multi Auth</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
     <style>
         input:focus {
             box-shadow: none !important;
@@ -30,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="{{ route('account.registeration') }}" method="POST">
+                            <form action="{{ route('account.registeration') }}" method="POST" autocomplete="off">
                                 @csrf
                                 <div class="row gy-0 overflow-hidden">
                                     <div class="col-12">
@@ -39,7 +40,7 @@
                                                 placeholder="name@example.com" style="box-shadow:none;">
                                             <label for="name" class="form-label">Name</label>
                                             @error('name')
-                                                <div class="form-text text-danger">{{ $message }}</div>
+                                            <div class="form-text text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -49,17 +50,17 @@
                                                 placeholder="name@example.com">
                                             <label for="email" class="form-label">Email</label>
                                             @error('email')
-                                                <div class="form-text text-danger">{{ $message }}</div>
+                                            <div class="form-text text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" name="password" id="password"
-                                                value="" placeholder="Password">
+                                                placeholder="Password">
                                             <label for="password" class="form-label">Password</label>
                                             @error('password')
-                                                <div class="form-text text-danger">{{ $message }}</div>
+                                            <div class="form-text text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
@@ -69,8 +70,15 @@
                                                 id="password_confirmation" placeholder="Confirm Password">
                                             <label for="password" class="form-label">Confirm Password</label>
                                             @error('password_confirmation')
-                                                <p class="form-text text-danger">{{ $message }}</p>
+                                            <p class="form-text text-danger">{{ $message }}</p>
                                             @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <div class="d-flex gap-2 float-start">
+                                            <input type="checkbox" class="checkbox-lg" name="password_check"
+                                                id="check_password" onclick="togglePassword()">
+                                            <label for="check_password">Show Password</label>
                                         </div>
                                     </div>
                                     <div class="col-12">

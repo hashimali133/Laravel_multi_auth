@@ -1,0 +1,8 @@
+input:focus {
+    box-shadow: none !important;
+}
+.checkbox-lg{
+    scale: 1.5;
+    margin-left: 5px;
+    cursor: pointer;
+}
