@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="{{ route('account.registeration') }}" method="POST" autocomplete="off">
+                            <form action="{{ route('account.registeration') }}" method="POST">
                                 @csrf
                                 <div class="row gy-0 overflow-hidden">
                                     <div class="col-12">
