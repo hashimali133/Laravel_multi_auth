@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 
+
 class ProductController extends Controller
 {
     /**

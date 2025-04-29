@@ -10,6 +10,6 @@ class profileController extends Controller
 {
     public function index(): View
     {
-        return view('admin.profile');
+        return view( 'Admin.profile');
     }
 }

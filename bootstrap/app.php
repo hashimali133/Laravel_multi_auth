@@ -16,8 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin.auth' => \App\Http\Middleware\AdminAuth::class,
         ]);
         $middleware->redirectTo(
-            guests: '/accounts/login',
-            users: '/accounts/dashboard'
+            guests: '/account/login',
+            users: '/account/profile'
         );
     })
     ->withExceptions(function (Exceptions $exceptions) {

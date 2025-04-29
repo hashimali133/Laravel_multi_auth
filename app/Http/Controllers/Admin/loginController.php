@@ -26,7 +26,7 @@ class loginController extends Controller
                     Auth::guard('admin')->logout();
                     return redirect()->route('admin.login')->withInput()->with('error', 'Access denied you\'re not authorized person!');
                 }
-                return redirect()->route('admin.profile');
+                return redirect()->route('admin.dashboard');
             } else {
                 return redirect()->route('admin.login')->withInput()->with('error', 'Either email or password is incorrect!');
             }

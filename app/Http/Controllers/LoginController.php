@@ -27,7 +27,7 @@ class LoginController extends Controller
         ]);
         if ($validator->passes()) {
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-                return redirect()->route('account.dashboard');
+                return redirect()->route('account.profile');
             } else {
                 return redirect()->route('account.login')->with('error', 'Either email or password is incorrect!');
             }
@@ -54,6 +54,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('account.login');
+        return redirect()->route('welcome');
     }
 }

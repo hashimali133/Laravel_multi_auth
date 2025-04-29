@@ -7,10 +7,10 @@ use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\profileController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
+Route::get('/www.geniuscode.com', function () {
     return view('welcome');
-});
-Route::group(['prefix' => 'accounts'], function () {
+})->name('welcome');
+Route::group(['prefix' => 'account'], function () {
     //Guest Middleware
     Route::group(['middleware' => 'guest'], function () {
         Route::get('/login', [LoginController::class, 'index'])->name('account.login');
@@ -20,8 +20,8 @@ Route::group(['prefix' => 'accounts'], function () {
     });
     //Authenticated Middleware
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('account.dashboard');
-        Route::resource('products', ProductController::class);
+        Route::get('/profile', [DashboardController::class, 'index'])->name('account.profile');
+        Route::resource('/products', ProductController::class);
         Route::get('/logout', [LoginController::class, 'logout'])->name('account.logout');
     });
 });
@@ -29,11 +29,11 @@ Route::group(['prefix' => 'accounts'], function () {
 //Admin-section
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
-        Route::get('login', [AdminLoginController::class, 'index'])->name('admin.login');
+        Route::get('/login', [AdminLoginController::class, 'index'])->name('admin.login');
         Route::post('authenticate', [AdminLoginController::class, 'authenticate'])->name('admin.authenticate');
     });
     Route::group(['middleware' => 'admin.auth'], function () {
-        Route::get('profile', [profileController::class, 'index'])->name('admin.profile');
-        Route::get('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+        Route::get('/dashboard', [profileController::class, 'index'])->name('admin.dashboard');
+        Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     });
 });

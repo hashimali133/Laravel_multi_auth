@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 
 class ProductUpdateRequest extends FormRequest
 {
+    protected $product;
     /**
      * Determine if the user is authorized to make this request.
      */

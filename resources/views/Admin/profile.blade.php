@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-md bg-white shadow-lg bsb-navbar bsb-navbar-hover bsb-navbar-caret">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <strong>Laravel 11 Multi Auth :: Admin Profile:</strong>
+                <strong>Laravel 11 Multi Auth :: Admin Dashboard:</strong>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -49,7 +49,7 @@
     <div class="container">
         <div class="card border-0 shadow my-5">
             <div class="card-header bg-light">
-                <h3 class="h5 pt-2">Profile</h3>
+                <h3 class="h5 pt-2">Dashboard</h3>
             </div>
             <div class="card-body">
                 You are logged in !!
